@@ -1,8 +1,9 @@
 import AppHeader from "../app-header";
 import SearchPanel from "../search-pannel";
 import TodoList from "../todo-list";
-import './app.css';
 import ItemStatusFilter from "../ItemStatusFilter";
+import TodoItemAddPannel from "../todo-item-add-pannel";
+import './app.css';
 
 const App = () => {
     const todoData = [
@@ -19,6 +20,7 @@ const App = () => {
                 <SearchPanel/>
                 <ItemStatusFilter/>
             </div>
+            <TodoItemAddPannel/>
             <TodoList data={todoData}/>
         </div>
     );
