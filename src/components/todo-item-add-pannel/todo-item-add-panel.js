@@ -3,9 +3,9 @@ import './todo-item-add-panel.css';
 
 const TodoItemAddPanel = () => {
     return (
-        <div>
-            <input placeholder="todo label"/>
-            <button type="button">add todo</button>
+        <div className="todo-label d-flex">
+            <input placeholder="todo label" type="text" className="form-control"/>
+            <button type="button" className="btn btn-outline-secondary">add todo</button>
         </div>
     );
 };

@@ -4,7 +4,7 @@ const ItemStatusFilter = () => {
     return (
         <div>
             <button type="button"
-                    className="btn btn-info">
+                    className="btn btn-success">
                 All
             </button>
             <button type="button"

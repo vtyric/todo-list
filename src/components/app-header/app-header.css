@@ -1,0 +1,12 @@
+div .header {
+    align-items: flex-end;
+}
+
+.header h1 {
+    flex-grow: 1;
+}
+
+.header h2 {
+    font-size: 24px;
+    color: grey;
+}

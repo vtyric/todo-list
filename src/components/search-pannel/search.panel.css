@@ -1,0 +1,5 @@
+div .search {
+    width: auto;
+    flex-grow: 1;
+    margin-right: 6px;
+}

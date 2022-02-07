@@ -1,0 +1,9 @@
+div .app {
+    max-width: 500px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+div .top-panel {
+    margin: 14px 0;
+}
