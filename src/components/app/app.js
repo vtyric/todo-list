@@ -16,7 +16,8 @@ export default class App extends Component {
             {label: "поиграть в доту", id: 3, important: false, done: true},
             {label: "дойти до качалки", id: 4, important: true, done: false}
         ],
-        term: ''
+        term: '',
+        filter: ''
     };
 
     deleteItem = (id) => this.setState(({todoData}) => ({todoData: todoData.filter(d => d.id !== id)}));
@@ -40,20 +41,32 @@ export default class App extends Component {
 
     onSearchLabelChange = (term) => this.setState({term});
 
-    search = (items, term) => items.filter(item => item.label.toLowerCase().includes(term.toLowerCase()))
+    onFilterChange = (filter) => this.setState({filter});
+
+    #search = (items, term) => items.filter(item => item.label.toLowerCase().includes(term.toLowerCase()));
+
+    #filterItems = (items, filter) => {
+        if (filter === 'active') {
+            return items.filter(item => !item.done);
+        }
+        if (filter === 'done') {
+            return items.filter(item => item.done);
+        }
+        return items;
+    }
 
     render() {
-        const {todoData, term} = this.state;
+        const {todoData, term, filter} = this.state;
         const doneCount = todoData.filter(d => d.done).length;
         const todoCount = todoData.length - doneCount;
-        const items = this.search(todoData, term);
+        const items = this.#filterItems(this.#search(todoData, term), filter);
 
         return (
             <div className="app">
                 <AppHeader todo={todoCount} done={doneCount}/>
                 <div className="top-panel d-flex">
                     <SearchPanel onSearchLabelChange={this.onSearchLabelChange}/>
-                    <ItemStatusFilter/>
+                    <ItemStatusFilter onFilterChange={this.onFilterChange}/>
                 </div>
                 <TodoItemAddPanel
                     onItemAdd={this.addItem}/>

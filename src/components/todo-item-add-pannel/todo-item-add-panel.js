@@ -6,9 +6,7 @@ export default class TodoItemAddPanel extends Component {
         label: ''
     };
 
-    onLabelChange = (e) => {
-        this.setState({label: e.target.value});
-    }
+    onLabelChange = (e) => this.setState({label: e.target.value})
 
     onSubmit = (e) => {
         e.preventDefault();
